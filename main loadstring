@@ -34,9 +34,38 @@ _G.configuration = {
         onnoatms = true, -- leaves when there are no more atms to farm (shoe and hospital become ineffective)
         onknocked = false, -- leaves if the account gets knocked
         leaveinterval = 0, -- leaves after (seconds) (leave on 0 if you want it to be disabled)
-        onjoined = false, -- leaves if a player with the same id in joinedids joins
+        onjoined = true, -- leaves if a player with the same id in joinedids joins
         joinedids = {
-7004377917, 7004492620, 7004499008, 7004494552, 362395808, 297073672, 284853465, 403552264
+483676071,
+245297334,
+459622828,
+471226297,
+2016588577,
+1987453960,
+1385744582,
+386205949,
+1903448471,
+238500891,
+1695686458,
+700827067,
+1631857009,
+429147486,
+1785043976,
+301532332,
+219017266,
+4881105359,
+4881105724,
+4881105726,
+1895145447,
+2229245701,
+2229190198,
+487834142,
+369106284,
+407867903,
+418962478,
+426053851,
+433410635,
+378719796,
         },
         onloaded = true, -- leaves if a account with the same id in loadedids is already in the server
         loadedids = {
@@ -69,7 +98,7 @@ _G.configuration = {
 418962478,
 426053851,
 433410635,
-378719796
+378719796,
         },
     },
     webhook = {
