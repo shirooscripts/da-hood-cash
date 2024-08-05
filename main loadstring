@@ -21,8 +21,8 @@ _G.configuration = {
         },
     },
     weapon = {
-        defaultmoveset = false, -- farms using default moveset
-        boxingmoveset = true, -- farms using boxing moveset (farms boxing if it doesnt already have it)
+        defaultmoveset = true, -- farms using default moveset
+        boxingmoveset = false, -- farms using boxing moveset (farms boxing if it doesnt already have it)
     },
     other = {
         mask = true, -- automatically masks the account
