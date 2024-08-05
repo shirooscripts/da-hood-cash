@@ -1,0 +1,1384 @@
+warn('Clones Selling Gui Has Loaded (v2.0.0)')
+
+--[[
+
+Data
+
+--]]
+
+local HttpService = game:GetService("HttpService")
+if not isfile("CloneSellingGui.txt") then
+	local loaded_data = {
+		["Webhook"] = "",
+		["SoundID"] = "",
+		["HistoryTab"] = {
+
+		}
+	}
+
+	local content = HttpService:JSONEncode(loaded_data)
+	writefile("CloneSellingGui.txt", content)
+end
+
+local loaded_data = HttpService:JSONDecode(readfile("CloneSellingGui.txt"))
+
+--[[
+
+Load Gui
+
+--]]
+
+local clones_selling_gui = Instance.new("ScreenGui")
+clones_selling_gui.IgnoreGuiInset = false
+clones_selling_gui.ResetOnSpawn = true
+clones_selling_gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+clones_selling_gui.Name = "Clones Selling GUI"
+clones_selling_gui.Parent = game:GetService("CoreGui")
+
+local canvas_group = Instance.new("CanvasGroup")
+canvas_group.AnchorPoint = Vector2.new(0.5, 0.5)
+canvas_group.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+canvas_group.BorderColor3 = Color3.new(0, 0, 0)
+canvas_group.BorderSizePixel = 0
+canvas_group.Position = UDim2.new(0.378231347, 0, 0.452025056, 0)
+canvas_group.Size = UDim2.new(0.261788279, 0, 0.429999948, 0)
+canvas_group.Visible = true
+canvas_group.Parent = clones_selling_gui
+
+local top = Instance.new("Frame")
+top.AnchorPoint = Vector2.new(0.5, 0.5)
+top.BackgroundColor3 = Color3.new(0.129412, 0.129412, 0.129412)
+top.BorderColor3 = Color3.new(0, 0, 0)
+top.BorderSizePixel = 0
+top.Position = UDim2.new(0.499999762, 0, 0.0467179418, 0)
+top.Size = UDim2.new(0.999999523, 0, 0.0992717296, 0)
+top.Visible = true
+top.Name = "Top"
+top.Parent = canvas_group
+
+local text_label = Instance.new("TextLabel")
+text_label.Font = Enum.Font.Gotham
+text_label.Text = "Clones Selling GUI"
+text_label.TextColor3 = Color3.new(1, 1, 1)
+text_label.TextScaled = true
+text_label.TextSize = 14
+text_label.TextStrokeTransparency = 0
+text_label.TextWrapped = true
+text_label.AnchorPoint = Vector2.new(0.5, 0.5)
+text_label.BackgroundColor3 = Color3.new(1, 1, 1)
+text_label.BackgroundTransparency = 1
+text_label.BorderColor3 = Color3.new(0, 0, 0)
+text_label.BorderSizePixel = 0
+text_label.Position = UDim2.new(0.50000006, 0, 0.497263283, 0)
+text_label.Size = UDim2.new(0.999999881, 0, 1.00547338, 0)
+text_label.Visible = true
+text_label.Parent = top
+
+local uitext_size_constraint = Instance.new("UITextSizeConstraint")
+uitext_size_constraint.MaxTextSize = 14
+uitext_size_constraint.Parent = text_label
+
+local buttons = Instance.new("Frame")
+buttons.AnchorPoint = Vector2.new(0.5, 0.5)
+buttons.BackgroundColor3 = Color3.new(0.0823529, 0.0823529, 0.0823529)
+buttons.BorderColor3 = Color3.new(0, 0, 0)
+buttons.BorderSizePixel = 0
+buttons.Position = UDim2.new(0.499999762, 0, 0.141471222, 0)
+buttons.Size = UDim2.new(1.00000024, 0, 0.0902348757, 0)
+buttons.Visible = true
+buttons.Name = "Buttons"
+buttons.Parent = canvas_group
+
+local uigrid_layout = Instance.new("UIGridLayout")
+uigrid_layout.CellPadding = UDim2.new(0, 0, 0, 0)
+uigrid_layout.CellSize = UDim2.new(0.25, 0, 1, 0)
+uigrid_layout.SortOrder = Enum.SortOrder.LayoutOrder
+uigrid_layout.Parent = buttons
+
+local main = Instance.new("TextButton")
+main.Font = Enum.Font.Gotham
+main.Text = "Main"
+main.TextColor3 = Color3.new(1, 1, 1)
+main.TextScaled = true
+main.TextSize = 14
+main.TextStrokeTransparency = 0
+main.TextWrapped = true
+main.AnchorPoint = Vector2.new(0.5, 0.5)
+main.BackgroundColor3 = Color3.new(1, 1, 1)
+main.BackgroundTransparency = 1
+main.BorderColor3 = Color3.new(0, 0, 0)
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.104508042, 0, 1.59932482, 0)
+main.Size = UDim2.new(0.209016338, 0, 3.19864964, 0)
+main.Visible = true
+main.Name = "Main"
+main.Parent = buttons
+
+local uitext_size_constraint_2 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_2.MaxTextSize = 14
+uitext_size_constraint_2.Parent = main
+
+local history = Instance.new("TextButton")
+history.Font = Enum.Font.Gotham
+history.Text = "History"
+history.TextColor3 = Color3.new(1, 1, 1)
+history.TextScaled = true
+history.TextSize = 14
+history.TextStrokeTransparency = 0
+history.TextWrapped = true
+history.AnchorPoint = Vector2.new(0.5, 0.5)
+history.BackgroundColor3 = Color3.new(1, 1, 1)
+history.BackgroundTransparency = 1
+history.BorderColor3 = Color3.new(0, 0, 0)
+history.BorderSizePixel = 0
+history.Position = UDim2.new(0.104508042, 0, 1.59932482, 0)
+history.Size = UDim2.new(0.5, 0, 1, 0)
+history.Visible = true
+history.Name = "History"
+history.Parent = buttons
+
+local uitext_size_constraint_3 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_3.MaxTextSize = 14
+uitext_size_constraint_3.Parent = history
+
+local utilities = Instance.new("TextButton")
+utilities.Font = Enum.Font.Gotham
+utilities.Text = "Utilities"
+utilities.TextColor3 = Color3.new(1, 1, 1)
+utilities.TextScaled = true
+utilities.TextSize = 14
+utilities.TextStrokeTransparency = 0
+utilities.TextWrapped = true
+utilities.AnchorPoint = Vector2.new(0.5, 0.5)
+utilities.BackgroundColor3 = Color3.new(1, 1, 1)
+utilities.BackgroundTransparency = 1
+utilities.BorderColor3 = Color3.new(0, 0, 0)
+utilities.BorderSizePixel = 0
+utilities.Position = UDim2.new(0.104508042, 0, 1.59932482, 0)
+utilities.Size = UDim2.new(0.25, 0, 1, 0)
+utilities.Visible = true
+utilities.Name = "Utilities"
+utilities.Parent = buttons
+
+local uitext_size_constraint_4 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_4.MaxTextSize = 14
+uitext_size_constraint_4.Parent = utilities
+
+local settings = Instance.new("TextButton")
+settings.Font = Enum.Font.Gotham
+settings.Text = "Settings"
+settings.TextColor3 = Color3.new(1, 1, 1)
+settings.TextScaled = true
+settings.TextSize = 14
+settings.TextStrokeTransparency = 0
+settings.TextWrapped = true
+settings.AnchorPoint = Vector2.new(0.5, 0.5)
+settings.BackgroundColor3 = Color3.new(1, 1, 1)
+settings.BackgroundTransparency = 1
+settings.BorderColor3 = Color3.new(0, 0, 0)
+settings.BorderSizePixel = 0
+settings.Position = UDim2.new(0.104508042, 0, 1.59932482, 0)
+settings.Size = UDim2.new(0.25, 0, 1, 0)
+settings.Visible = true
+settings.Name = "Settings"
+settings.Parent = buttons
+
+local uitext_size_constraint_5 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_5.MaxTextSize = 14
+uitext_size_constraint_5.Parent = settings
+
+local uicorner = Instance.new("UICorner")
+uicorner.Parent = canvas_group
+
+local uistroke = Instance.new("UIStroke")
+uistroke.Thickness = 2
+uistroke.Parent = canvas_group
+
+local main_2 = Instance.new("ScrollingFrame")
+main_2.ScrollBarImageColor3 = Color3.new(0, 0, 0)
+main_2.ScrollBarImageTransparency = 1
+main_2.ScrollBarThickness = 0
+main_2.Active = true
+main_2.AnchorPoint = Vector2.new(0.5, 0.5)
+main_2.BackgroundColor3 = Color3.new(1, 1, 1)
+main_2.BackgroundTransparency = 1
+main_2.BorderColor3 = Color3.new(0, 0, 0)
+main_2.BorderSizePixel = 0
+main_2.Position = UDim2.new(0.499523729, 0, 0.592474043, 0)
+main_2.Size = UDim2.new(1.00095129, 0, 0.815051973, 0)
+main_2.Visible = false
+main_2.Name = "Main"
+main_2.Parent = canvas_group
+
+local uilist_layout = Instance.new("UIListLayout")
+uilist_layout.SortOrder = Enum.SortOrder.LayoutOrder
+uilist_layout.Parent = main_2
+
+local uiaspect_ratio_constraint = Instance.new("UIAspectRatioConstraint")
+uiaspect_ratio_constraint.AspectRatio = 1.237480878829956
+uiaspect_ratio_constraint.Parent = canvas_group
+
+local history_2 = Instance.new("ScrollingFrame")
+history_2.ScrollBarImageColor3 = Color3.new(0, 0, 0)
+history_2.ScrollBarImageTransparency = 1
+history_2.ScrollBarThickness = 0
+history_2.Active = true
+history_2.AnchorPoint = Vector2.new(0.5, 0.5)
+history_2.BackgroundColor3 = Color3.new(1, 1, 1)
+history_2.BackgroundTransparency = 1
+history_2.BorderColor3 = Color3.new(0, 0, 0)
+history_2.BorderSizePixel = 0
+history_2.Position = UDim2.new(0.499523729, 0, 0.592474043, 0)
+history_2.Size = UDim2.new(1.00095129, 0, 0.815051913, 0)
+history_2.Visible = false
+history_2.Name = "History"
+history_2.Parent = canvas_group
+
+local uilist_layout_2 = Instance.new("UIListLayout")
+uilist_layout_2.SortOrder = Enum.SortOrder.LayoutOrder
+uilist_layout_2.Parent = history_2
+
+local settings_2 = Instance.new("ScrollingFrame")
+settings_2.ScrollBarImageColor3 = Color3.new(0, 0, 0)
+settings_2.ScrollBarImageTransparency = 1
+settings_2.ScrollBarThickness = 0
+settings_2.Active = true
+settings_2.AnchorPoint = Vector2.new(0.5, 0.5)
+settings_2.BackgroundColor3 = Color3.new(1, 1, 1)
+settings_2.BackgroundTransparency = 1
+settings_2.BorderColor3 = Color3.new(0, 0, 0)
+settings_2.BorderSizePixel = 0
+settings_2.Position = UDim2.new(0.499523729, 0, 0.592474043, 0)
+settings_2.Size = UDim2.new(1.00095129, 0, 0.815051913, 0)
+settings_2.Visible = false
+settings_2.Name = "Settings"
+settings_2.Parent = canvas_group
+
+local uilist_layout_3 = Instance.new("UIListLayout")
+uilist_layout_3.SortOrder = Enum.SortOrder.LayoutOrder
+uilist_layout_3.Parent = settings_2
+
+local webhook = Instance.new("Frame")
+webhook.AnchorPoint = Vector2.new(0.5, 0.5)
+webhook.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+webhook.BorderColor3 = Color3.new(0, 0, 0)
+webhook.BorderSizePixel = 0
+webhook.Position = UDim2.new(0.500000298, 0, 0.0623113587, 0)
+webhook.Size = UDim2.new(1.0000006, 0, 0.124622494, 0)
+webhook.Visible = true
+webhook.Name = "Webhook"
+webhook.Parent = settings_2
+
+local uilist_layout_4 = Instance.new("UIListLayout")
+uilist_layout_4.Padding = UDim.new(0, 5)
+uilist_layout_4.HorizontalAlignment = Enum.HorizontalAlignment.Center
+uilist_layout_4.SortOrder = Enum.SortOrder.LayoutOrder
+uilist_layout_4.VerticalAlignment = Enum.VerticalAlignment.Center
+uilist_layout_4.Parent = webhook
+
+local unload = Instance.new("TextButton")
+unload.Font = Enum.Font.Gotham
+unload.Text = "Unload Script"
+unload.TextColor3 = Color3.new(1, 1, 1)
+unload.TextScaled = true
+unload.TextSize = 14
+unload.TextWrapped = true
+unload.AnchorPoint = Vector2.new(0.5, 0.5)
+unload.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+unload.BorderColor3 = Color3.new(0, 0, 0)
+unload.BorderSizePixel = 0
+unload.Position = UDim2.new(0.5, 0, 0.131105572, 0)
+unload.Size = UDim2.new(0.956053138, 0, 0.262212694, 0)
+unload.Visible = true
+unload.Name = "Unload"
+unload.Parent = webhook
+
+local uicorner_2 = Instance.new("UICorner")
+uicorner_2.Parent = unload
+
+local uitext_size_constraint_6 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_6.MaxTextSize = 12
+uitext_size_constraint_6.Parent = unload
+
+--[[
+local reload = Instance.new("TextButton")
+reload.Font = Enum.Font.Gotham
+reload.Text = "Reload Script"
+reload.TextColor3 = Color3.new(1, 1, 1)
+reload.TextScaled = true
+reload.TextSize = 14
+reload.TextWrapped = true
+reload.AnchorPoint = Vector2.new(0.5, 0.5)
+reload.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+reload.BorderColor3 = Color3.new(0, 0, 0)
+reload.BorderSizePixel = 0
+reload.Position = UDim2.new(0.5, 0, 0.499998808, 0)
+reload.Size = UDim2.new(0.956053138, 0, 0.254394948, 0)
+reload.Visible = true
+reload.Name = "Reload"
+reload.Parent = webhook
+
+local uicorner_3 = Instance.new("UICorner")
+uicorner_3.Parent = reload
+
+local uitext_size_constraint_7 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_7.MaxTextSize = 12
+uitext_size_constraint_7.Parent = reload
+
+local wipe_history = Instance.new("TextButton")
+wipe_history.Font = Enum.Font.Gotham
+wipe_history.Text = "Wipe History"
+wipe_history.TextColor3 = Color3.new(1, 1, 1)
+wipe_history.TextScaled = true
+wipe_history.TextSize = 14
+wipe_history.TextWrapped = true
+wipe_history.AnchorPoint = Vector2.new(0.5, 0.5)
+wipe_history.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+wipe_history.BorderColor3 = Color3.new(0, 0, 0)
+wipe_history.BorderSizePixel = 0
+wipe_history.Position = UDim2.new(0.5, 0, 0.86889261, 0)
+wipe_history.Size = UDim2.new(0.956053138, 0, 0.262212694, 0)
+wipe_history.Visible = true
+wipe_history.Name = "WipeHistory"
+wipe_history.Parent = webhook
+
+
+local uicorner_4 = Instance.new("UICorner")
+uicorner_4.Parent = wipe_history
+
+local uitext_size_constraint_8 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_8.MaxTextSize = 12
+uitext_size_constraint_8.Parent = wipe_history
+--]]
+
+local utilities_2 = Instance.new("ScrollingFrame")
+utilities_2.ScrollBarImageColor3 = Color3.new(0, 0, 0)
+utilities_2.ScrollBarImageTransparency = 1
+utilities_2.ScrollBarThickness = 0
+utilities_2.Active = true
+utilities_2.AnchorPoint = Vector2.new(0.5, 0.5)
+utilities_2.BackgroundColor3 = Color3.new(1, 1, 1)
+utilities_2.BackgroundTransparency = 1
+utilities_2.BorderColor3 = Color3.new(0, 0, 0)
+utilities_2.BorderSizePixel = 0
+utilities_2.Position = UDim2.new(0.499523729, 0, 0.592474043, 0)
+utilities_2.Size = UDim2.new(1.00095129, 0, 0.815051913, 0)
+utilities_2.Visible = false
+utilities_2.Name = "Utilities"
+utilities_2.Parent = canvas_group
+
+local uilist_layout_5 = Instance.new("UIListLayout")
+uilist_layout_5.SortOrder = Enum.SortOrder.LayoutOrder
+uilist_layout_5.Parent = utilities_2
+
+local webhook_2 = Instance.new("Frame")
+webhook_2.AnchorPoint = Vector2.new(0.5, 0.5)
+webhook_2.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+webhook_2.BorderColor3 = Color3.new(0, 0, 0)
+webhook_2.BorderSizePixel = 0
+webhook_2.Position = UDim2.new(0.500000298, 0, 0.0561644062, 0)
+webhook_2.Size = UDim2.new(1.0000006, 0, 0.112328812, 0)
+webhook_2.Visible = true
+webhook_2.Name = "Webhook"
+webhook_2.Parent = utilities_2
+
+local webhook_3 = Instance.new("TextBox")
+webhook_3.CursorPosition = -1
+webhook_3.Font = Enum.Font.Gotham
+webhook_3.PlaceholderText = "Webhook Link"
+
+if loaded_data["Webhook"] ~= nil then
+    webhook_3.Text = loaded_data["Webhook"]
+else
+    webhook_3.Text = ""
+end
+
+webhook_3.TextColor3 = Color3.new(1, 1, 1)
+webhook_3.TextSize = 14
+webhook_3.AnchorPoint = Vector2.new(0.5, 0.5)
+webhook_3.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+webhook_3.BorderColor3 = Color3.new(0, 0, 0)
+webhook_3.BorderSizePixel = 0
+webhook_3.Position = UDim2.new(0.330711335, 0, 0.493164212, 0)
+webhook_3.Size = UDim2.new(0.622787714, 0, 0.669208944, 0)
+webhook_3.Visible = true
+webhook_3.Name = "Webhook"
+webhook_3.Parent = webhook_2
+
+local uicorner_5 = Instance.new("UICorner")
+uicorner_5.Parent = webhook_3
+
+local uitext_size_constraint_9 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_9.MaxTextSize = 12
+uitext_size_constraint_9.Parent = webhook_3
+
+local set_webhook = Instance.new("TextButton")
+set_webhook.Font = Enum.Font.Gotham
+set_webhook.Text = "Set Webhook"
+set_webhook.TextColor3 = Color3.new(1, 1, 1)
+set_webhook.TextScaled = true
+set_webhook.TextSize = 14
+set_webhook.TextWrapped = true
+set_webhook.AnchorPoint = Vector2.new(0.5, 0.5)
+set_webhook.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+set_webhook.BorderColor3 = Color3.new(0, 0, 0)
+set_webhook.BorderSizePixel = 0
+set_webhook.Position = UDim2.new(0.820028126, 0, 0.300349176, 0)
+set_webhook.Size = UDim2.new(0.310953528, 0, 0.327493519, 0)
+set_webhook.Visible = true
+set_webhook.Name = "SetWebhook"
+set_webhook.Parent = webhook_2
+
+local uicorner_6 = Instance.new("UICorner")
+uicorner_6.Parent = set_webhook
+
+local uitext_size_constraint_10 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_10.MaxTextSize = 12
+uitext_size_constraint_10.Parent = set_webhook
+
+local webhook_completion = Instance.new("TextButton")
+webhook_completion.Font = Enum.Font.Gotham
+webhook_completion.Text = "Webhook Completion"
+webhook_completion.TextColor3 = Color3.new(1, 1, 1)
+webhook_completion.TextScaled = true
+webhook_completion.TextSize = 14
+webhook_completion.TextWrapped = true
+webhook_completion.AnchorPoint = Vector2.new(0.5, 0.5)
+webhook_completion.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+webhook_completion.BorderColor3 = Color3.new(0, 0, 0)
+webhook_completion.BorderSizePixel = 0
+webhook_completion.Position = UDim2.new(0.820028126, 0, 0.664021373, 0)
+webhook_completion.Size = UDim2.new(0.310953528, 0, 0.327493519, 0)
+webhook_completion.Visible = true
+webhook_completion.Name = "WebhookCompletion"
+webhook_completion.Parent = webhook_2
+
+local uicorner_7 = Instance.new("UICorner")
+uicorner_7.Parent = webhook_completion
+
+local uitext_size_constraint_11 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_11.MaxTextSize = 12
+uitext_size_constraint_11.Parent = webhook_completion
+
+local webhook_configurations = Instance.new("Frame")
+webhook_configurations.AnchorPoint = Vector2.new(0.5, 0.5)
+webhook_configurations.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+webhook_configurations.BorderColor3 = Color3.new(0, 0, 0)
+webhook_configurations.BorderSizePixel = 0
+webhook_configurations.Position = UDim2.new(0.500000298, 0, 0.0561644062, 0)
+webhook_configurations.Size = UDim2.new(1, 0, 0.112000003, 0)
+webhook_configurations.Visible = true
+webhook_configurations.Name = "WebhookConfigurations"
+webhook_configurations.Parent = utilities_2
+
+local save_settings = Instance.new("TextButton")
+save_settings.Font = Enum.Font.Gotham
+save_settings.Text = "Save Settings"
+save_settings.TextColor3 = Color3.new(1, 1, 1)
+save_settings.TextScaled = true
+save_settings.TextSize = 14
+save_settings.TextWrapped = true
+save_settings.AnchorPoint = Vector2.new(0.5, 0.5)
+save_settings.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+save_settings.BorderColor3 = Color3.new(0, 0, 0)
+save_settings.BorderSizePixel = 0
+save_settings.Position = UDim2.new(0.737990081, 0, 0.694199681, 0)
+save_settings.Size = UDim2.new(0.47502932, 0, 0.398391902, 0)
+save_settings.Visible = true
+save_settings.Name = "WebhookCompletion"
+save_settings.Parent = webhook_configurations
+
+local uicorner_8 = Instance.new("UICorner")
+uicorner_8.Parent = save_settings
+
+local uitext_size_constraint_12 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_12.MaxTextSize = 12
+uitext_size_constraint_12.Parent = save_settings
+
+local sound_completion = Instance.new("TextButton")
+sound_completion.Font = Enum.Font.Gotham
+sound_completion.Text = "Sound When Complete"
+sound_completion.TextColor3 = Color3.new(1, 1, 1)
+sound_completion.TextScaled = true
+sound_completion.TextSize = 14
+sound_completion.TextWrapped = true
+sound_completion.AnchorPoint = Vector2.new(0.5, 0.5)
+sound_completion.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+sound_completion.BorderColor3 = Color3.new(0, 0, 0)
+sound_completion.BorderSizePixel = 0
+sound_completion.Position = UDim2.new(0.737990081, 0, 0.198699802, 0)
+sound_completion.Size = UDim2.new(0.47502932, 0, 0.398391873, 0)
+sound_completion.Visible = true
+sound_completion.Name = "SoundCompletion"
+sound_completion.Parent = webhook_configurations
+
+local uicorner_9 = Instance.new("UICorner")
+uicorner_9.Parent = sound_completion
+
+local uitext_size_constraint_13 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_13.MaxTextSize = 12
+uitext_size_constraint_13.Parent = sound_completion
+
+local sound_id = Instance.new("TextBox")
+sound_id.CursorPosition = -1
+sound_id.Font = Enum.Font.Gotham
+sound_id.PlaceholderText = "Sound ID"
+
+if loaded_data["SoundID"] ~= nil then
+    sound_id.Text = loaded_data["SoundID"]
+else
+    sound_id.Text = ""
+end
+
+sound_id.TextColor3 = Color3.new(1, 1, 1)
+sound_id.TextSize = 14
+sound_id.AnchorPoint = Vector2.new(0.5, 0.5)
+sound_id.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+sound_id.BorderColor3 = Color3.new(0, 0, 0)
+sound_id.BorderSizePixel = 0
+sound_id.Position = UDim2.new(0.248261541, 0, 0.202782497, 0)
+sound_id.Size = UDim2.new(0.462599367, 0, 0.427132845, 0)
+sound_id.Visible = true
+sound_id.Name = "SoundID"
+sound_id.Parent = webhook_configurations
+
+local uicorner_10 = Instance.new("UICorner")
+uicorner_10.Parent = sound_id
+
+local uitext_size_constraint_14 = Instance.new("UITextSizeConstraint")
+uitext_size_constraint_14.MaxTextSize = 12
+uitext_size_constraint_14.Parent = sound_id
+
+--[[
+
+Important Functions
+
+--]]
+
+--> Webhook Saving
+save_settings.MouseButton1Down:Connect(function()
+    warn("Saving Webhook To: "..webhook_3.Text)
+    warn("Saving SoundID To: "..sound_id.Text)
+
+    loaded_data["Webhook"] = webhook_3.Text
+    loaded_data["SoundID"] = sound_id.Text
+    local encoded = HttpService:JSONEncode(loaded_data)
+
+    delfile("CloneSellingGui.txt")
+    writefile("CloneSellingGui.txt", encoded)
+
+    local loaded_data = HttpService:JSONDecode(readfile("CloneSellingGui.txt"))
+end)
+
+--> Number Formatter
+local function format(number)
+	number = tostring(number)
+	return number:reverse():gsub("...","%0,",math.floor((#number-1)/3)):reverse()
+end
+
+--> Remove Numbers
+local function remove_numbers(x)
+	return ({x:gsub("%d", "")})[1]
+end
+
+--> String Shortcuts
+local function shortcut(number, shortcut)
+	local number_amount = tonumber(number:sub(1, #number - 1))
+	local shortcut_value = remove_numbers(tostring(number))
+
+	if shortcut_value == "k" then
+		number_amount *= 1000
+	elseif shortcut_value == "m" then
+		number_amount *= 1000000
+	elseif shortcut_value == "b" then
+		number_amount *= 1000000000
+	end
+
+	return number_amount
+end
+
+--> Drag
+canvas_group.Draggable = true
+canvas_group.Active = true
+canvas_group.Selectable = true
+
+--> Unload
+unload.MouseButton1Down:Connect(function()
+	canvas_group:Destroy()
+end)
+
+--[[ 
+
+Library
+
+--]]
+
+local selling_gui = {}
+
+function selling_gui.add_history(table)
+	local player_id = table.Player_ID
+	local player_currency = table.Saved_Cash
+	local player_sold_amount = table.Saved_Selling_Amount
+	local player_name = table.Player_Name
+	local player_display = table.Player_DisplayName
+	local generated_name = table.Player_GeneratedName
+
+    --[[
+        
+        Card
+
+    --]]
+
+	local card = Instance.new("Frame")
+	card.AnchorPoint = Vector2.new(0.5, 0.5)
+	card.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+	card.BorderColor3 = Color3.new(0, 0, 0)
+	card.BorderSizePixel = 0
+	card.Position = UDim2.new(0.49999997, 0, 0.053178601, 0)
+	card.Size = UDim2.new(0.99999994, 0, 0.106357202, 0)
+	card.Visible = true
+	card.Name = player_name
+	card.Parent = history_2
+
+	local player_icon = Instance.new("ImageLabel")
+	player_icon.Image = "https://www.roblox.com/bust-thumbnail/image?userId="..tostring(player_id).."&width=420&height=420&format=png"
+	player_icon.ImageColor3 = Color3.new(255, 255, 255)
+	player_icon.AnchorPoint = Vector2.new(0.5, 0.5)
+	player_icon.BackgroundColor3 = Color3.new(1, 1, 1)
+	player_icon.BackgroundTransparency = 1
+	player_icon.BorderColor3 = Color3.new(0, 0, 0)
+	player_icon.BorderSizePixel = 0
+	player_icon.Position = UDim2.new(0.0843881518, 0, 0.497655749, 0)
+	player_icon.Size = UDim2.new(0.105989054, 0, 0.626111567, 0)
+	player_icon.Visible = true
+	player_icon.Name = "History"
+	player_icon.Parent = card
+
+	local uicorner = Instance.new("UICorner")
+	uicorner.Parent = player_icon
+
+	local uistroke = Instance.new("UIStroke")
+	uistroke.Color = Color3.new(1, 0.341176, 0.341176)
+	uistroke.Thickness = 2
+	uistroke.Parent = player_icon
+
+	local cash = Instance.new("TextLabel")
+	cash.Font = Enum.Font.Gotham
+	cash.Text = player_currency
+	cash.TextColor3 = Color3.new(1, 1, 1)
+	cash.TextScaled = true
+	cash.TextSize = 14
+	cash.TextWrapped = true
+	cash.TextXAlignment = Enum.TextXAlignment.Left
+	cash.AnchorPoint = Vector2.new(0.5, 0.5)
+	cash.BackgroundColor3 = Color3.new(1, 1, 1)
+	cash.BackgroundTransparency = 1
+	cash.BorderColor3 = Color3.new(0, 0, 0)
+	cash.BorderSizePixel = 0
+	cash.Position = UDim2.new(0.306140333, 0, 0.676000834, 0)
+	cash.Size = UDim2.new(0.271894187, 0, 0.271533221, 0)
+	cash.Visible = true
+	cash.Name = "Cash"
+	cash.Parent = card
+
+	local uitext_size_constraint = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint.MaxTextSize = 14
+	uitext_size_constraint.Parent = cash
+
+	local goal = Instance.new("TextLabel")
+	goal.Font = Enum.Font.Gotham
+	goal.Text = player_sold_amount
+	goal.TextColor3 = Color3.new(1, 1, 1)
+	goal.TextScaled = true
+	goal.TextSize = 14
+	goal.TextWrapped = true
+	goal.AnchorPoint = Vector2.new(0.5, 0.5)
+	goal.BackgroundColor3 = Color3.new(1, 1, 1)
+	goal.BackgroundTransparency = 1
+	goal.BorderColor3 = Color3.new(0, 0, 0)
+	goal.BorderSizePixel = 0
+	goal.Position = UDim2.new(0.840549171, 0, 0.720441699, 0)
+	goal.Size = UDim2.new(0.28257212, 0, 0.324918807, 0)
+	goal.Visible = true
+	goal.Name = "Goal"
+	goal.Parent = card
+
+	local uitext_size_constraint_2 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_2.MaxTextSize = 14
+	uitext_size_constraint_2.Parent = goal
+
+	local cash_to_pickup = Instance.new("TextBox")
+	cash_to_pickup.CursorPosition = -1
+	cash_to_pickup.Font = Enum.Font.Gotham
+	cash_to_pickup.PlaceholderText = "$1,000,000"
+	cash_to_pickup.Text = ""
+	cash_to_pickup.TextColor3 = Color3.new(0.764706, 0.764706, 0.764706)
+	cash_to_pickup.TextSize = 14
+	cash_to_pickup.TextWrapped = true
+	cash_to_pickup.AnchorPoint = Vector2.new(0.5, 0.5)
+	cash_to_pickup.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+	cash_to_pickup.BorderColor3 = Color3.new(0, 0, 0)
+	cash_to_pickup.BorderSizePixel = 0
+	cash_to_pickup.Position = UDim2.new(0.84054935, 0, 0.308000207, 0)
+	cash_to_pickup.Size = UDim2.new(0.282572329, 0, 0.38499999, 0)
+	cash_to_pickup.Visible = true
+	cash_to_pickup.Name = "CashToPickup"
+	cash_to_pickup.Parent = card
+
+	local uicorner_2 = Instance.new("UICorner")
+	uicorner_2.Parent = cash_to_pickup
+
+	local uitext_size_constraint_3 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_3.MaxTextSize = 14
+	uitext_size_constraint_3.Parent = cash_to_pickup
+
+	local username = Instance.new("TextLabel")
+	username.Font = Enum.Font.GothamBold
+	username.Text = player_name.." ("..player_display..")"
+	username.TextColor3 = Color3.new(1, 1, 1)
+	username.TextScaled = true
+	username.TextSize = 14
+	username.TextWrapped = true
+	username.TextXAlignment = Enum.TextXAlignment.Left
+	username.AnchorPoint = Vector2.new(0.5, 0.5)
+	username.BackgroundColor3 = Color3.new(1, 1, 1)
+	username.BackgroundTransparency = 1
+	username.BorderColor3 = Color3.new(0, 0, 0)
+	username.BorderSizePixel = 0
+	username.Position = UDim2.new(0.306140333, 0, 0.306648135, 0)
+	username.Size = UDim2.new(0.271894187, 0, 0.271533161, 0)
+	username.Visible = true
+	username.Name = "Username"
+	username.Parent = card
+
+	local uitext_size_constraint_4 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_4.MaxTextSize = 14
+	uitext_size_constraint_4.Parent = username
+
+	local remove = Instance.new("TextButton")
+	remove.Font = Enum.Font.GothamBold
+	remove.Text = "REMOVE HISTORY"
+	remove.TextColor3 = Color3.new(1, 0, 0)
+	remove.TextScaled = true
+	remove.TextSize = 14
+	remove.TextWrapped = true
+	remove.AnchorPoint = Vector2.new(0.5, 0.5)
+	remove.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+	remove.BorderColor3 = Color3.new(0, 0, 0)
+	remove.BorderSizePixel = 0
+	remove.Position = UDim2.new(0.590514064, 0, 0.306250215, 0)
+	remove.Size = UDim2.new(0.180077031, 0, 0.388500214, 0)
+	remove.Visible = true
+	remove.Name = "Remove"
+	remove.Parent = card
+
+	local uicorner_3 = Instance.new("UICorner")
+	uicorner_3.Parent = remove
+
+	local uitext_size_constraint_5 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_5.MaxTextSize = 8
+	uitext_size_constraint_5.Parent = remove
+
+	local remove_history = remove.MouseButton1Down:Connect(function()
+        local loaded_data = HttpService:JSONDecode(readfile("CloneSellingGui.txt"))
+        loaded_data["HistoryTab"][generated_name] = nil
+        local encoded = HttpService:JSONEncode(loaded_data)
+        delfile("CloneSellingGui.txt")
+        writefile("CloneSellingGui.txt", encoded)
+
+		card:Destroy()
+	end)
+end
+
+function selling_gui.card_exists(player)
+	if main_2:FindFirstChild(player.Name) then
+		return true
+	else
+		return false
+	end
+end
+
+--> Card Function
+function selling_gui.add_card(player : player) -- :)
+    --[[
+
+        Player Details
+    
+    --]]
+
+	local player_id = player.UserId
+	local player_datafolder = player:WaitForChild("DataFolder")
+	local player_currency = player_datafolder:WaitForChild("Currency")
+
+    --[[
+        
+        Card
+
+    --]]
+
+	local card = Instance.new("Frame")
+	card.AnchorPoint = Vector2.new(0.5, 0.5)
+	card.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
+	card.BorderColor3 = Color3.new(0, 0, 0)
+	card.BorderSizePixel = 0
+	card.Position = UDim2.new(0.49999997, 0, 0.053178601, 0)
+	card.Size = UDim2.new(0.99999994, 0, 0.106357202, 0)
+	card.Visible = true
+	card.Name = player.Name
+	card.Parent = main_2
+
+	local player_icon = Instance.new("ImageLabel")
+	player_icon.Image = "https://www.roblox.com/bust-thumbnail/image?userId="..tostring(player_id).."&width=420&height=420&format=png"
+	player_icon.ImageColor3 = Color3.new(255, 255, 255)
+	player_icon.AnchorPoint = Vector2.new(0.5, 0.5)
+	player_icon.BackgroundColor3 = Color3.new(1, 1, 1)
+	player_icon.BackgroundTransparency = 1
+	player_icon.BorderColor3 = Color3.new(0, 0, 0)
+	player_icon.BorderSizePixel = 0
+	player_icon.Position = UDim2.new(0.0843881518, 0, 0.497655749, 0)
+	player_icon.Size = UDim2.new(0.105989054, 0, 0.626111567, 0)
+	player_icon.Visible = true
+	player_icon.Name = player.UserId
+	player_icon.Parent = card
+
+	local uicorner = Instance.new("UICorner")
+	uicorner.Parent = player_icon
+
+	local uistroke = Instance.new("UIStroke")
+	uistroke.Color = Color3.new(1, 0.341176, 0.341176)
+	uistroke.Thickness = 2
+	uistroke.Parent = player_icon
+
+	local cash = Instance.new("TextLabel")
+	cash.Font = Enum.Font.Gotham
+	cash.Text = "$"..format(tostring(player_currency.Value))
+	cash.TextColor3 = Color3.new(1, 1, 1)
+	cash.TextScaled = true
+	cash.TextSize = 14
+	cash.TextWrapped = true
+	cash.TextXAlignment = Enum.TextXAlignment.Left
+	cash.AnchorPoint = Vector2.new(0.5, 0.5)
+	cash.BackgroundColor3 = Color3.new(1, 1, 1)
+	cash.BackgroundTransparency = 1
+	cash.BorderColor3 = Color3.new(0, 0, 0)
+	cash.BorderSizePixel = 0
+	cash.Position = UDim2.new(0.306140333, 0, 0.676000834, 0)
+	cash.Size = UDim2.new(0.271894187, 0, 0.271533221, 0)
+	cash.Visible = true
+	cash.Name = "Cash"
+	cash.Parent = card
+
+	local uitext_size_constraint = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint.MaxTextSize = 14
+	uitext_size_constraint.Parent = cash
+
+	local goal = Instance.new("TextLabel")
+	goal.Font = Enum.Font.Gotham
+	goal.Text = "$0"
+	goal.TextColor3 = Color3.new(1, 1, 1)
+	goal.TextScaled = true
+	goal.TextSize = 14
+	goal.TextWrapped = true
+	goal.AnchorPoint = Vector2.new(0.5, 0.5)
+	goal.BackgroundColor3 = Color3.new(1, 1, 1)
+	goal.BackgroundTransparency = 1
+	goal.BorderColor3 = Color3.new(0, 0, 0)
+	goal.BorderSizePixel = 0
+	goal.Position = UDim2.new(0.840549171, 0, 0.720441699, 0)
+	goal.Size = UDim2.new(0.28257212, 0, 0.324918807, 0)
+	goal.Visible = true
+	goal.Name = "Goal"
+	goal.Parent = card
+
+	local uitext_size_constraint_2 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_2.MaxTextSize = 14
+	uitext_size_constraint_2.Parent = goal
+
+	local cash_to_pickup = Instance.new("TextBox")
+	cash_to_pickup.CursorPosition = -1
+	cash_to_pickup.Font = Enum.Font.Gotham
+	cash_to_pickup.PlaceholderText = "$1,000,000"
+	cash_to_pickup.Text = ""
+	cash_to_pickup.TextColor3 = Color3.new(0.764706, 0.764706, 0.764706)
+	cash_to_pickup.TextSize = 14
+	cash_to_pickup.TextWrapped = true
+	cash_to_pickup.AnchorPoint = Vector2.new(0.5, 0.5)
+	cash_to_pickup.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+	cash_to_pickup.BorderColor3 = Color3.new(0, 0, 0)
+	cash_to_pickup.BorderSizePixel = 0
+	cash_to_pickup.Position = UDim2.new(0.84054935, 0, 0.308000207, 0)
+	cash_to_pickup.Size = UDim2.new(0.282572329, 0, 0.38499999, 0)
+	cash_to_pickup.Visible = true
+	cash_to_pickup.Name = "CashToPickup"
+	cash_to_pickup.Parent = card
+
+	local uicorner_2 = Instance.new("UICorner")
+	uicorner_2.Parent = cash_to_pickup
+
+	local uitext_size_constraint_3 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_3.MaxTextSize = 14
+	uitext_size_constraint_3.Parent = cash_to_pickup
+
+	local username = Instance.new("TextLabel")
+	username.Font = Enum.Font.GothamBold
+	username.Text = player.Name.." ("..player.DisplayName..")"
+	username.TextColor3 = Color3.new(1, 1, 1)
+	username.TextScaled = true
+	username.TextSize = 14
+	username.TextWrapped = true
+	username.TextXAlignment = Enum.TextXAlignment.Left
+	username.AnchorPoint = Vector2.new(0.5, 0.5)
+	username.BackgroundColor3 = Color3.new(1, 1, 1)
+	username.BackgroundTransparency = 1
+	username.BorderColor3 = Color3.new(0, 0, 0)
+	username.BorderSizePixel = 0
+	username.Position = UDim2.new(0.306140333, 0, 0.306648135, 0)
+	username.Size = UDim2.new(0.271894187, 0, 0.271533161, 0)
+	username.Visible = true
+	username.Name = "Username"
+	username.Parent = card
+
+	local uitext_size_constraint_4 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_4.MaxTextSize = 14
+	uitext_size_constraint_4.Parent = username
+
+	local remove = Instance.new("TextButton")
+	remove.Font = Enum.Font.GothamBold
+	remove.Text = "REMOVE CARD"
+	remove.TextColor3 = Color3.new(1, 0, 0)
+	remove.TextScaled = true
+	remove.TextSize = 14
+	remove.TextWrapped = true
+	remove.AnchorPoint = Vector2.new(0.5, 0.5)
+	remove.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+	remove.BorderColor3 = Color3.new(0, 0, 0)
+	remove.BorderSizePixel = 0
+	remove.Position = UDim2.new(0.590514064, 0, 0.306250215, 0)
+	remove.Size = UDim2.new(0.180077031, 0, 0.388500214, 0)
+	remove.Visible = true
+	remove.Name = "Remove"
+	remove.Parent = card
+
+	local uicorner_3 = Instance.new("UICorner")
+	uicorner_3.Parent = remove
+
+	local uitext_size_constraint_5 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_5.MaxTextSize = 8
+	uitext_size_constraint_5.Parent = remove
+
+	local teleport = Instance.new("TextButton")
+	teleport.Font = Enum.Font.GothamBold
+	teleport.Text = "TP"
+	teleport.TextColor3 = Color3.new(0.705882, 0.705882, 0.705882)
+	teleport.TextScaled = true
+	teleport.TextSize = 14
+	teleport.TextWrapped = true
+	teleport.AnchorPoint = Vector2.new(0.5, 0.5)
+	teleport.BackgroundColor3 = Color3.new(0.0941176, 0.0941176, 0.0941176)
+	teleport.BorderColor3 = Color3.new(0, 0, 0)
+	teleport.BorderSizePixel = 0
+	teleport.Position = UDim2.new(0.590514064, 0, 0.745211601, 0)
+	teleport.Size = UDim2.new(0.180077031, 0, 0.388500243, 0)
+	teleport.Visible = true
+	teleport.Name = "Teleport"
+	teleport.Parent = card
+
+	local uicorner_4 = Instance.new("UICorner")
+	uicorner_4.Parent = teleport
+
+	local uitext_size_constraint_6 = Instance.new("UITextSizeConstraint")
+	uitext_size_constraint_6.MaxTextSize = 8
+	uitext_size_constraint_6.Parent = teleport
+
+    --[[
+
+    Functions
+
+    --]]
+
+	--> Important
+	local begin_count = false
+	local goal_amount = nil
+	local completion_warning = false
+	local connected = true
+	local saved_name = player.Name
+
+	--> Amount Checking
+	local set_amount = player_currency.Value
+
+	--> Player_Checks
+	game.Players.PlayerAdded:Connect(function(plr)
+		if saved_name == plr.Name then
+			connected = true
+			uistroke.Color = Color3.new(1, 0.341176, 0.341176)
+
+			player_id = plr.UserId
+			player_datafolder = plr:WaitForChild("DataFolder")
+			player_currency = player_datafolder:WaitForChild("Currency")
+
+			local amount_checking = player_currency:GetPropertyChangedSignal("Value"):Connect(function()
+				if not connected then return end
+		
+				if begin_count then
+		
+					if completion_warning == false then
+						if player_currency.Value > (goal_amount + set_amount) - ((goal_amount + set_amount) * 0.20) then
+							-- Player has reached 80% of their goal.
+							completion_warning = true
+		
+							if loaded_data["SoundID"] ~= nil then
+								local sound = Instance.new("Sound")
+								sound.SoundId = "rbxassetid://136075117"
+								sound.PlayOnRemove = true
+								sound.Parent = workspace
+								sound:Destroy()
+							end
+		
+							if loaded_data["Webhook"] ~= nil then
+								local request = http_request or httprequest or error("Webhook API: Failed to find HTTP request function");
+								local date_time = "<t:"..os.time()..":R>"
+								local blurred_name = string.sub(player.Name, 1, 3)..string.gsub(string.sub(player.Name, 4, #player.Name), ".", "*")
+			
+								local content = {
+									content = "<@744274804135428180>",
+									embeds = {
+										{	
+											title = "Purchase Near Complete",
+											description = "User ``"..blurred_name.."`` has collected 80% of their order of ``"..tostring("$"..format(goal_amount)).."``\nOrder Warning: "..date_time,
+											url = "",
+											color = 16776960,
+										}
+									},
+									attachments = {}
+								}
+			
+								local response = request(
+									{
+										Url = loaded_data["Webhook"],
+										Method = "POST",
+										Headers = {
+											["Content-Type"] = "application/json"
+										},
+										Body = HttpService:JSONEncode(content)
+									}
+								)
+							end
+						end
+					end
+		
+					if set_amount > player_currency.Value then
+						-- player has spent money
+		
+						goal_amount -= set_amount - player_currency.Value
+						set_amount = player_currency.Value
+						goal.Text = "$"..format(goal_amount)
+					elseif player_currency.Value > (goal_amount + set_amount) then
+						-- player complete
+						begin_count = false
+						uistroke.Color = Color3.fromRGB(0, 255, 0)
+		
+						if loaded_data["SoundID"] ~= nil then
+							local sound = Instance.new("Sound")
+							sound.SoundId = loaded_data["SoundID"]
+							sound.PlayOnRemove = true
+							sound.Parent = workspace
+							sound:Destroy()
+						end
+		
+						if loaded_data["Webhook"] ~= nil then
+							local request = http_request or httprequest or error("Webhook API: Failed to find HTTP request function");
+							local date_time = "<t:"..os.time()..":R>"
+							local blurred_name = string.sub(player.Name, 1, 3)..string.gsub(string.sub(player.Name, 4, #player.Name), ".", "*")
+		
+							local content = {
+								content = "<@489201683654508544>",
+								embeds = {
+									{	
+										title = "Purchase Complete",
+										description = "User ``"..blurred_name.."`` has collected their order of ``"..tostring("$"..format(goal_amount)).."``\nOrder Date: "..date_time,
+										url = "",
+										color = 50000,
+									}
+								},
+								attachments = {}
+							}
+		
+							local response = request(
+								{
+									Url = loaded_data["Webhook"],
+									Method = "POST",
+									Headers = {
+										["Content-Type"] = "application/json"
+									},
+									Body = HttpService:JSONEncode(content)
+								}
+							)
+						end
+					end
+				else
+					set_amount = player_currency.Value
+				end
+		
+				-- update cash label
+				cash.Text = "$"..format(tostring(player_currency.Value))
+			end)
+		
+			--> Input Detection
+			local textbox_checking = cash_to_pickup.FocusLost:Connect(function()
+				if not connected then return end
+		
+				-- Amount Has Been Set (Checking)
+		
+				local amount = cash_to_pickup.Text
+				if tonumber(amount) == nil then --> Contains A Shortcut
+					local shortcutted = shortcut(amount)
+		
+					if shortcutted then
+						goal_amount = tonumber(shortcutted)
+						cash_to_pickup.Text = "$"..format(tostring(goal_amount))
+						goal.Text = "$"..format(goal_amount)
+		
+						begin_count = true
+					else
+						warn("A Error Has Occured When Setting Shortcut!")
+					end
+				else --> Doesn't Contain Shortcut
+					goal_amount = tonumber(cash_to_pickup.Text)
+					cash_to_pickup.Text = "$"..format(tostring(goal_amount))
+					goal.Text = "$"..format(tostring(goal_amount + set_amount))
+					begin_count = true
+		
+					if not goal_amount then
+						return warn("Failed To Set Goal Amount")
+					end
+				end
+			end)
+		end
+	end)
+
+	game.Players.PlayerRemoving:Connect(function(plr)
+		print(plr)
+		if plr == player then
+			connected = false
+			uistroke.Color = Color3.new(0.572549, 0.341176, 1)
+		end
+	end)
+
+	local amount_checking = player_currency:GetPropertyChangedSignal("Value"):Connect(function()
+		if not connected then return end
+
+		if begin_count then
+
+			if completion_warning == false then
+				if player_currency.Value > (goal_amount + set_amount) - ((goal_amount + set_amount) * 0.20) then
+					-- Player has reached 80% of their goal.
+					completion_warning = true
+
+					if loaded_data["SoundID"] ~= nil then
+						local sound = Instance.new("Sound")
+						sound.SoundId = "rbxassetid://136075117"
+						sound.PlayOnRemove = true
+						sound.Parent = workspace
+						sound:Destroy()
+					end
+
+					if loaded_data["Webhook"] ~= nil then
+						local request = http_request or httprequest or error("Webhook API: Failed to find HTTP request function");
+						local date_time = "<t:"..os.time()..":R>"
+						local blurred_name = string.sub(player.Name, 1, 3)..string.gsub(string.sub(player.Name, 4, #player.Name), ".", "*")
+	
+						local content = {
+							content = "<@489201683654508544>",
+							embeds = {
+								{	
+									title = "Purchase Near Complete",
+									description = "User ``"..blurred_name.."`` has collected 80% of their order of ``"..tostring("$"..format(goal_amount)).."``\nOrder Warning: "..date_time,
+									url = "",
+									color = 16776960,
+								}
+							},
+							attachments = {}
+						}
+	
+						local response = request(
+							{
+								Url = loaded_data["Webhook"],
+								Method = "POST",
+								Headers = {
+									["Content-Type"] = "application/json"
+								},
+								Body = HttpService:JSONEncode(content)
+							}
+						)
+					end
+				end
+			end
+
+			if set_amount > player_currency.Value then
+				-- player has spent money
+
+				goal_amount -= set_amount - player_currency.Value
+				set_amount = player_currency.Value
+				goal.Text = "$"..format(goal_amount)
+			elseif player_currency.Value > (goal_amount + set_amount) then
+				-- player complete
+                begin_count = false
+				uistroke.Color = Color3.fromRGB(0, 255, 0)
+
+                if loaded_data["SoundID"] ~= nil then
+                    local sound = Instance.new("Sound")
+                    sound.SoundId = loaded_data["SoundID"]
+                    sound.PlayOnRemove = true
+                    sound.Parent = workspace
+                    sound:Destroy()
+                end
+
+                if loaded_data["Webhook"] ~= nil then
+                    local request = http_request or httprequest or error("Webhook API: Failed to find HTTP request function");
+                    local date_time = "<t:"..os.time()..":R>"
+                    local blurred_name = string.sub(player.Name, 1, 3)..string.gsub(string.sub(player.Name, 4, #player.Name), ".", "*")
+
+					local content = {
+						content = "<@489201683654508544>",
+						embeds = {
+							{	
+								title = "Purchase Complete",
+								description = "User ``"..blurred_name.."`` has collected their order of ``"..tostring("$"..format(goal_amount)).."``\nOrder Date: "..date_time,
+								url = "",
+								color = 50000,
+							}
+						},
+						attachments = {}
+					}
+
+                    local response = request(
+                        {
+                            Url = loaded_data["Webhook"],
+                            Method = "POST",
+                            Headers = {
+                                ["Content-Type"] = "application/json"
+                            },
+                            Body = HttpService:JSONEncode(content)
+                        }
+                    )
+                end
+			end
+		else
+			set_amount = player_currency.Value
+		end
+
+		-- update cash label
+		cash.Text = "$"..format(tostring(player_currency.Value))
+	end)
+
+	--> Input Detection
+	local textbox_checking = cash_to_pickup.FocusLost:Connect(function()
+		if not connected then return end
+
+		-- Amount Has Been Set (Checking)
+
+		local amount = cash_to_pickup.Text
+		if tonumber(amount) == nil then --> Contains A Shortcut
+			local shortcutted = shortcut(amount)
+
+			if shortcutted then
+				goal_amount = tonumber(shortcutted)
+				cash_to_pickup.Text = "$"..format(tostring(goal_amount))
+				goal.Text = '$'..format(tostring(tonumber(goal_amount + tonumber(player_currency.Value))))
+
+				begin_count = true
+			else
+				warn("A Error Has Occured When Setting Shortcut!")
+			end
+		else --> Doesn't Contain Shortcut
+			goal_amount = tonumber(cash_to_pickup.Text)
+			cash_to_pickup.Text = "$"..format(tostring(goal_amount))
+			goal.Text = "$"..format(tostring(goal_amount + set_amount))
+			begin_count = true
+
+			if not goal_amount then
+				return warn("Failed To Set Goal Amount")
+			end
+		end
+	end)
+
+	--> Teleport
+	local teleport_card = teleport.MouseButton1Down:Connect(function()
+		if not connected then return end
+
+		if player.Character then
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:WaitForChild(saved_name).Character.HumanoidRootPart.CFrame
+		end
+	end)
+
+	--> Remove Card
+	local remove_card = remove.MouseButton1Down:Connect(function()
+		amount_checking:Disconnect()
+		textbox_checking:Disconnect()
+
+		local loaded_data = HttpService:JSONDecode(readfile("CloneSellingGui.txt"))
+		local generated_name = tostring(HttpService:GenerateGUID())
+        loaded_data["HistoryTab"][generated_name] = {
+			Player_ID = player.UserId,
+			Player_DisplayName = player.DisplayName,
+			Player_Name = player.Name,
+			Saved_Cash = tostring("$"..format(tostring(player_currency.Value))),
+			Saved_Selling_Amount = "$"..format(tostring(goal_amount)),
+			Player_GeneratedName = generated_name
+		}
+
+        local encoded = HttpService:JSONEncode(loaded_data)
+        delfile("CloneSellingGui.txt")
+        writefile("CloneSellingGui.txt", encoded)
+
+		card:Destroy()
+	end)
+end
+
+--[[
+
+Page Functions
+
+--]]
+
+main.MouseButton1Down:Connect(function()
+	main_2.Visible = true
+	history_2.Visible = false
+	utilities_2.Visible = false
+	settings_2.Visible = false
+end)
+
+history.MouseButton1Down:Connect(function()
+	main_2.Visible = false
+	history_2.Visible = true
+	utilities_2.Visible = false
+	settings_2.Visible = false
+
+	for _, card in ipairs(history_2:GetChildren()) do
+		if card:IsA("Frame") then
+			card:Destroy()
+		end
+	end
+
+	local HttpService = game:GetService("HttpService")
+	local loaded_data = HttpService:JSONDecode(readfile("CloneSellingGui.txt"))
+	for _, data in pairs(loaded_data["HistoryTab"]) do
+		selling_gui.add_history(data)
+	end
+end)
+
+utilities.MouseButton1Down:Connect(function()
+	main_2.Visible = false
+	history_2.Visible = false
+	utilities_2.Visible = true
+	settings_2.Visible = false
+end)
+
+settings.MouseButton1Down:Connect(function()
+	main_2.Visible = false
+	history_2.Visible = false
+	utilities_2.Visible = false
+	settings_2.Visible = true
+end)
+
+return selling_gui
