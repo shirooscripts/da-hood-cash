@@ -9,14 +9,14 @@ getgenv().TargetUnitRoll = {
 getgenv().notRollUnitTarget = false
 getgenv().UseSavePosition = false
 getgenv().GemRollUnit = 2500
-getgenv()["Black Screen"] = true
+getgenv()["Black Screen"] = false
 getgenv()["Auto Leave Infinite"] = {
     ["Auto Leave"] = true,
     ["Method"] = {
-        ["Sell"] = false,
-        ["Leave"] = true,
+        ["Sell"] = true,
+        ["Leave"] = false,
     },
-    ["Wave"] = 32
+    ["Wave"] = 31
 }
 getgenv().Webhook =  {
     ["Webhook"] = true,
