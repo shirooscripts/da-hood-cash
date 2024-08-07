@@ -1,26 +1,24 @@
-_G.AutofarmSettings = {
-    ["AttackMode"] = "2",
-    --// ^ 1 - Fast Punch | 2 - Super Punch - fastest with max moveset
-
-    ["Fps"] = "10",
-    --// ^ Wouldnt recommend going below 5. ^
-
-    ["Codes"] = {
-        "BLAZE", 
-        "METAL",
-        "PENGUIN",
-        "pumpkins2023",
-        "DAUP"
-    }, 
-    --// ^ (optional) Codes that will be automatically claimed. ^
-
-    ["Webhook"] = "https://discord.com/api/webhooks/1143250760138772620/-52ZlhZnZLddPHwE7n615agW2Jb8PCNPLuJkCPc2XlO9oGCNJSM_wSIo2UsJGFFl4eHT",
-    --// ^ (optional) Webhook link that logs will be sent to. ^
-    
-    ["LogInterval"] = "2",
-    --// ^ How often the logs will be sent in minutes.
-    
-    ["Credits"] = "iku autofarm - by @trans"
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().Key = "dfddac81288f5d9c42af64bf"
+getgenv().TargetUnitRoll = {
+    "Admiral Of Lava"
 }
-
-loadstring(game:HttpGet("https://github.com/applless/RandomScripts/raw/main/IkuAutofarm"))()
+getgenv().notRollUnitTarget = false
+getgenv().UseSavePosition = false
+getgenv().GemRollUnit = 2500
+getgenv()["Black Screen"] = true
+getgenv()["Auto Leave Infinite"] = {
+    ["Auto Leave"] = true,
+    ["Method"] = {
+        ["Sell"] = false,
+        ["Leave"] = true,
+    },
+    ["Wave"] = 32
+}
+getgenv().Webhook =  {
+    ["Webhook"] = true,
+    ["Url"] = "https://discord.com/api/webhooks/1141886766782107769/QdNAtLgrJcBYPUYFn2gYqaep7-bYgstEHfyTP5LBtYv-OaWiHflJ1gnaX9b4fE-lXwl4",
+    ["Roll Unit"] = false,
+    ["Story/Infinite"] = true,
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaCat-KaitunAD.lua"))()
