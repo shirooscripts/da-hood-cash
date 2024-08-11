@@ -3,7 +3,7 @@ script_key="AJzxwkAgSzTJjeOfcuJKpTAonvlqpfNW"
 
 _G.configuration = {
     host = { -- only usernames
-remmyj
+remmyj, 
     },
     prefix = "/", -- prefix for commands
     framelimit = 8, -- frame limit
@@ -19,7 +19,7 @@ remmyj
 7087999493,
 7004494552,
 7004499008,
-7004492620
+7004492620,
         },
         fillgaps = true, -- fills gap for missing accounts
         advertise = "not.shiroo", -- advertise message
