@@ -1,56 +1,15 @@
-
-script_key="AJzxwkAgSzTJjeOfcuJKpTAonvlqpfNW"
-
-_G.configuration = {
-    host = { -- only usernames
-remmyj,
-NotShiroo,
-    },
-    prefix = "/", -- prefix for commands
-    framelimit = 8, -- frame limit
-    ui = true, -- places a ui on the screen displaying the accounts cash
-    setups = {
-        ['bank'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/bank',
-        ['club'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/club',
-        ['bank2'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/bank2',
-        ['train'] = 'https://raw.githubusercontent.com/polarsblade/setups/main/train',
-    },
-    accounts = {
-        ids = { -- ids only
-7087999493,
-7004494552,
-7004499008,
-7004492620,
-        },
-        fillgaps = true, -- fills gap for missing accounts
-        advertise = "not.shiroo", -- advertise message
-        cdropcovertax = true, -- cover tax for cdrop
-        responses = { -- responses for commands
-            toggle = true, -- toggle
-            ["random"] = "randomize complete",
-            ["fps"] = "fps set",
-            ["redeemcode"] = "code redeemed",
-            ["drop"] = {
-                "drop enabled", -- drop when toggled on
-                "drop disabled" -- drop when toggled off
-            },
-            ["wallet"] = {
-                "wallet equipped", -- wallets when equipped
-                "wallet unequipped" -- wallets when unequipped
-            },
-            ["setup"] = "setup complete",
-            ["circle"] = "circle formation complete",
-            ["setposition"] = "position set",
-            ["cdrop"] = {
-                "dropping amount", -- cdrop when enabled
-                "ended drop", -- cdrop when disabled
-            },
-            ["line"] = "lined up",
-            ["unarrest"] = "unarrested",
-            ["block"] = "blocking",
-            ["unblock"] = "unblocking",
-        }
-    }
+getgenv().Settings = {
+    ['host'] = 401777702, -- host user id
+    ['fps'] = 3, -- fps amount for alts!
+    ['prefix'] = '/', -- user prefix
+    ['Nova'] = "discord.gg/novacontrol made this" -- if you change this you will be kicked
 }
 
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/b50c882012e456f4c3a7216111d2f05d.lua"))()
+getgenv().Alts = { -- you can put as many alts as you want 
+    7004492620, 
+    7004499008,
+    7004494552,
+    7087999493,
+}
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/981726/Control/main/NovaControlFree'))()
