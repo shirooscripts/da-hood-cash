@@ -1,8 +1,8 @@
-script_key=""
+script_key="AJzxwkAgSzTJjeOfcuJKpTAonvlqpfNW"
 
 _G.configuration = {
     host = { -- only usernames
-
+remmyj
     },
     prefix = "/", -- prefix for commands
     framelimit = 8, -- frame limit
@@ -15,10 +15,13 @@ _G.configuration = {
     },
     accounts = {
         ids = { -- ids only
-
+7087999493,
+7004494552,
+7004499008,
+7004492620
         },
         fillgaps = true, -- fills gap for missing accounts
-        advertise = "/polarsblade", -- advertise message
+        advertise = "not.shiroo", -- advertise message
         cdropcovertax = true, -- cover tax for cdrop
         responses = { -- responses for commands
             toggle = true, -- toggle
