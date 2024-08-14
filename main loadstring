@@ -1,5 +1,5 @@
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-getgenv().Key = dfddac81288f5d9c42af64bf
+getgenv().Key = "dfddac81288f5d9c42af64bf"
 getgenv().SettingFarm ={
     ["GodHuman"] = true,
     ["Priority Get Melee Sea 3"] = true,
